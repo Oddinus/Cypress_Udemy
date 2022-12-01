@@ -7,7 +7,7 @@
     "triggerAllTests-headless": "npx cypress run",
     "triggerAllTests-headed": "npx cypress run --headed",
     "triggerAllTests-chrome": "npx cypress run --browser chrome",
-    "triggerAllTests-dashboard": "npx cypress run --record --key b9f92285-9efb-45f9-aaa3-1c9083d44cff",
+    "triggerAllTests-dashboard": "npx cypress run --record --key 2fd20993-db68-4a4b-89b1-8ba66496ad82",
     "triggerAllTests-webdriverUni": "npx cypress run --spec cypress/e2e/webdriver-uni/*",
     "triggerAllTests-autoTestStore": "npx cypress run --spec cypress/e2e/automation-test-store/*",
     "junit-merge": "npx junit-merge -d \"cypress/results/junit\" -o cypress/results/junit/results.xml",
@@ -16,9 +16,10 @@
     "mochawesome-merge": "npx mochawesome-merge cypress/results/mochawesome/*.json > mochawesome.json && npx marge mochawesome.json",
     "delete-mochawesome-report": "rm -rf mochawesome-report/* || true",
     "cypress-regression-pack": "npm run delete-results && npm run delete-mochawesome-report && npx cypress run && npm run mochawesome-merge",
-    "triggerAllTests-staging": "npx cypress run --config-file cypress/config/staging.json"
+    "triggerAllTests-staging": "npx cypress run --config-file cypress/config/staging.json",
+    "cypress-multi-browser": "npm run triggerAllTests-autoTestStore -- --browser electron --headed & npm run triggerAllTests-autoTestStore -- --browser firefox --headed"
   },
-  "author": "",
+  "author": "Piotr Łozowski",
   "license": "ISC",
   "devDependencies": {
     "cypress": "^11.0.1",

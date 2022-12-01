@@ -1,11 +1,11 @@
 const { defineConfig } = require("cypress");
-const fs = require('fs-extra');
-const path = require('path');
+const fs = require("fs-extra");
+const path = require("path");
 
 function getConfigurationByFile(file) {
-  const pathToConfigFile = path.resolve('cypress\\config', `${file}.json`);
+  const pathToConfigFile = path.resolve("cypress\\config", `${file}.json`);
 
-  if(!fs.existsSync(pathToConfigFile)) {
+  if (!fs.existsSync(pathToConfigFile)) {
     console.log("No custom config file found.");
     return {};
   }
@@ -14,13 +14,13 @@ function getConfigurationByFile(file) {
 }
 
 module.exports = defineConfig({
-  projectId: 'mevvq9',
+  projectId: "csim56",
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
-      const file = config.env.configFile || ''
+      const file = config.env.configFile || "";
 
-      return getConfigurationByFile(file)
+      return getConfigurationByFile(file);
     },
     specPattern: "cypress/e2e/**/*.{js,jsx,ts,tsx,feature}",
     excludeSpecPattern: "cypress/e2e/other/*.js",
@@ -35,17 +35,17 @@ module.exports = defineConfig({
     videoUploadOnPasses: false,
     viewportHeight: 1080,
     viewportWidth: 1920,
-    reporter: 'cypress-multi-reporters',
+    reporter: "cypress-multi-reporters",
     reporterOptions: {
-      configFile: 'reporter-config.json'
+      configFile: "reporter-config.json",
     },
     retries: {
       runMode: 0,
-      openMode: 0
+      openMode: 0,
     },
     env: {
       webdriveruni_homepage: "http://www.webdriveruniversity.com",
-      first_name: "Sarah"
-    }
+      first_name: "Sarah",
+    },
   },
 });

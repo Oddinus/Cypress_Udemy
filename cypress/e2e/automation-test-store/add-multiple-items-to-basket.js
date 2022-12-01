@@ -8,12 +8,12 @@ describe("Add multiple items to the basket", () => {
   const autoStore_HairCare_PO = new AutoStore_HairCare_PO();
 
   before(function () {
-    cy.fixture("products").then(function (data) {
+    cy.fixture("products").then((data) => {
       globalThis.data = data;
     });
   });
 
-  beforeEach(function () {
+  beforeEach(() => {
     cy.clearLocalStorage();
     cy.clearCookies();
     autoStore_Homepage_PO.accessHomepage();
