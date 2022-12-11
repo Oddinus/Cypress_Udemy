@@ -22,4 +22,18 @@ describe("Verify checkboxes via webdriveruni", () => {
     it("Check mutiple checkboxes", () => {
         cy.get("input[type='checkbox']").check(["option-1", "option-2", "option-3", "option-4"]).should('be.checked')
     });
+
+    /* ==== Test Created with Cypress Studio ==== */
+    it('Cypress Studio Example', function() {
+        /* ==== Generated with Cypress Studio ==== */
+        cy.get('[value="green"]').check();
+        cy.get('[value="blue"]').check();
+        cy.get('[value="yellow"]').check();
+        cy.get('#radio-buttons > [value="orange"]').check();
+        cy.get('[value="purple"]').check();
+        cy.get('[value="green"]').should('have.attr', 'name', 'color');
+        cy.get('#dropdowm-menu-2').select('testng');
+        cy.get('#dropdowm-menu-2').should('have.class', 'dropdown-menu-lists');
+        /* ==== End Cypress Studio ==== */
+    });
 })

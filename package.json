@@ -7,9 +7,10 @@
     "triggerAllTests-headless": "npx cypress run",
     "triggerAllTests-headed": "npx cypress run --headed",
     "triggerAllTests-chrome": "npx cypress run --browser chrome",
-    "triggerAllTests-dashboard": "npx cypress run --record --key 2fd20993-db68-4a4b-89b1-8ba66496ad82",
+    "triggerAllTests-dashboard": "npx cypress run --record --key 2fd20993-db68-4a4b-89b1-8ba66496ad82 --parallel",
     "triggerAllTests-webdriverUni": "npx cypress run --spec cypress/e2e/webdriver-uni/*",
     "triggerAllTests-autoTestStore": "npx cypress run --spec cypress/e2e/automation-test-store/*",
+    "triggerAllTests-cucumberTests": "npx cypress run --spec cypres/e2e/webdriver-uni/features/*.feature --browser chrome",
     "junit-merge": "npx junit-merge -d \"cypress/results/junit\" -o cypress/results/junit/results.xml",
     "delete-results": "rm -rf cypress/results/* || true",
     "delete-junit-report": "rm -rf cypress/results/junit/results.xml",
@@ -22,7 +23,8 @@
   "author": "Piotr Łozowski",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^11.0.1",
+    "cypress": "^11.2.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-file-upload": "^4.0.6",
     "cypress-multi-reporters": "^1.2.4",
     "cypress-xpath": "^1.4.0",
@@ -31,5 +33,9 @@
     "mochawesome": "^6.1.0",
     "mochawesome-merge": "^4.0.3",
     "mochawesome-report-generator": "^5.1.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "stepDefinitions": "cypress/support/step_definitions"
   }
 }
